@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.05 165">
+  <defs>
+    <style>
+      .rvm-cls-1 {
+        fill: none;
+        stroke: inherit;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: inherit;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="rvm-cls-1" d="m226.59,155H41.47c-9.6,0-17.91-6.68-19.97-16.06l-11.01-50.11c-2.8-12.76,6.91-24.83,19.97-24.83h207.15c13.06,0,22.77,12.08,19.97,24.83l-11.01,50.11c-2.06,9.38-10.37,16.06-19.97,16.06Zm-92.56-91V10m-50,0h100"/>
+      <polygon class="rvm-cls-1" points="134.03 100.92 61.12 154.92 206.94 154.92 134.03 100.92"/>
+    </g>
+  </g>
+</svg>

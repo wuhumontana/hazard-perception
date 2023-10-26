@@ -1,0 +1,65 @@
+.text-bubble-container {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  flex: 1;
+}
+.text-bubble {
+  position: relative;
+  background: lightgray;
+  border-radius: 1rem;
+  padding: 1rem 0.1rem;
+  height: calc(100% - 1.75rem);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  display: flex;
+}
+.text-bubble-content {
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  position: relative;
+  margin-inline: 1.1rem;
+  z-index: 1;
+  gap: 0.6rem;
+}
+.text-bubble .os-scrollbar-vertical {
+  padding-block: 0.2rem;
+}
+
+.text-bubble-triangle-left,
+.text-bubble-triangle-right {
+  --tail-size: 2rem;
+  --percent-offset: 20;
+  --raw-tail-offset: calc(1% * (10 + 3 * var(--percent-offset) / 5));
+  position: absolute;
+  width: var(--tail-size);
+  height: var(--tail-size);
+  z-index: 0;
+  bottom: 0;
+  background: lightgray;
+}
+
+.text-bubble-triangle-left {
+  left: clamp(8%, var(--raw-tail-offset), calc(85% - var(--tail-size)));
+  clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}
+
+.text-bubble-triangle-right {
+  right: clamp(8%, var(--raw-tail-offset), calc(85% - var(--tail-size)));
+  clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
+}
+
+.text-bubble-content ul {
+  padding-left: 1rem;
+  margin: 0;
+}
+.text-bubble-content ul header {
+  margin-left: -1rem;
+  margin-block: 0.2rem;
+  font-weight: var(--font-medium);
+  font-size: 1.1rem;
+}

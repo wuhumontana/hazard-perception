@@ -1,0 +1,168 @@
+body {
+  --main-bg-color: #213760;
+  --main-fg-color: #dae0f8;
+  --main-text-color: #1c2f53;
+  --scroll-thumb-color: #526d96;
+  --scroll-hover-color: #6591d3;
+  --scroll-active-color: #85abe5;
+  --btn-focus-outline: #6591d3;
+  --tooltip-bg-color: #88a2c9;
+  --text-link-color: #88a2c9;
+  --text-link-outline: #80b3ff;
+}
+
+.modal {
+  --modal-overlay-bg-color: #213760db;
+  --modal-outer-shadow-color: #6591d3;
+  --modal-border-color: #f5f8ff;
+  --modal-header-txt-color: white;
+  --modal-header-bg-color: #526d96;
+  --modal-close-bg-color: #f5f8ff;
+  --modal-close-color: #1c335f;
+  --modal-bg-color: var(--main-bg-color);
+  --modal-email-txt-color: #b2c8e1;
+  --separator-color: #506898;
+}
+
+.banner {
+  --banner-outer-shadow-color: #d36589;
+  --banner-border-color: #f5f8ff;
+  --banner-header-txt-color: white;
+  --banner-bg-color: #7c2336;
+  --banner-close-color: #f5f8ff;
+  --banner-close-bg-color: #39547d;
+}
+
+/* ============ Button Variants ============ */
+
+.btn .load-dots {
+  --dots-color: white;
+  --dots-color2: #fff4;
+}
+
+.btn.light {
+  --btn-color: white;
+  --btn-bg-color: #3763a6;
+  --btn-border-color: #f5f8ff;
+}
+
+.btn.dark {
+  --btn-color: #1c335f;
+  --btn-bg-color: #f5f8ff;
+  --btn-border-color: #213760;
+}
+
+.btn.secondary {
+  --btn-color: #88a2c9;
+  --btn-bg-color: #213760;
+  --btn-border-color: #7896ba;
+}
+
+.btn-toggle.light {
+  --toggle-border-color: #f5f8ff;
+  --toggle-btn-bg: #3763a6;
+}
+
+.btn-toggle.dark {
+  --toggle-border-color: #213760;
+}
+
+.btn-toggle.secondary {
+  --toggle-border-color: #7896ba;
+  --toggle-btn-bg: #3763a6;
+}
+
+/* =========== Progress Variants =========== */
+
+.circular-progress.dark {
+  --circular-progress-fg: #8399b9;
+  --circular-progress-bg: #213760;
+}
+
+.circular-progress.light {
+  --circular-progress-fg: #213760;
+  --circular-progress-bg: #8399b9;
+}
+
+.linear-progress,
+.section-progress {
+  --progress-border-color: #213760;
+  --complete-color: #dae0f8;
+  --complete-shadow: #839fd3;
+  --incomplete-color: #213760;
+  --incomplete-shadow: #36527b;
+}
+
+.section-progress {
+  --correct-color: #e0f9e8;
+  --correct-shadow: #82c1ba;
+  --incorrect-color: #f8ddda;
+  --incorrect-shadow: #c98898;
+  --correct-icon-color: #154e47;
+  --incorrect-icon-color: #5b262d;
+}
+
+/* ============== Input Fields ============= */
+
+select,
+.input-field,
+.textarea-field,
+.select-tooltip {
+  --input-bg-color: #a7bad1;
+  --input-label-color: #dae0f8;
+  --input-bg-hover-color: #caddf5;
+  --error-border-color: #ce335b;
+  --error-bg-color: #fcc2d1;
+  --error-hover-bg-color: #ffe1e9;
+  --error-fg-color: #bb2d50;
+  --input-autofill-border-color: #3da1cc;
+  --input-autofill-label-color: #89e0ff;
+  --input-autofill-bg-color: #b6e1fe;
+  --input-autofill-bg-hover-color: #cdebfd;
+}
+
+#dashboard {
+  --pfp-border-color: #f5f8ff;
+  --separator-color: #506898;
+  --text-color: #f5f8ff;
+  --progress-color: #597196;
+  --avatar-platform-color: #597196;
+  --modules-header-color: #dae0f8;
+  --danger-color: #c2234a;
+}
+
+#scenario {
+  --card-bg-color: #597196;
+  --exit-bg-color: #7b92b4;
+}
+
+/* ============== Card Variants ============== */
+.card {
+  --default-card-bg-color: #dae0f8;
+}
+
+.click-marker {
+  --correct-bg-color: #029866;
+  --wrong-bg-color: #9e0533;
+}
+
+/* ============== textarea ============== */
+.textarea-field {
+  --input-bg-color: #a7bad1;
+  --input-label-color: #dae0f8;
+  --input-bg-hover-color: #caddf5;
+  --error-border-color: #ce335b;
+  --error-bg-color: #fcc2d1;
+  --error-hover-bg-color: #ffe1e9;
+  --error-fg-color: #bb2d50;
+  --input-autofill-border-color: #3da1cc;
+  --input-autofill-label-color: #89e0ff;
+  --input-autofill-bg-color: #b6e1fe;
+  --input-autofill-bg-hover-color: #cdebfd;
+}
+
+select {
+  --input-bg-color: #a7bad1;
+  --input-label-color: #dae0f8;
+  --input-bg-hover-color: #caddf5;
+}

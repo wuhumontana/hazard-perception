@@ -1,0 +1,36 @@
+{
+  "id": "module_1",
+  "scenarios": {
+    "intersections_1": {
+      "id": "intersections_1",
+      "activities": {
+        "S": {
+          "id": "S",
+          "hitboxCoordinatesResponses": [],
+          "responseStartTimes": [],
+          "reponseEndTimes": [],
+          "lastCorrectIndex": {
+            "$numberInt": "-1"
+          },
+          "isCompleted": false,
+          "isStarted": false
+        },
+        "T": {
+          "id": "T",
+          "hitboxCoordinatesResponses": [],
+          "responseStartTimes": [],
+          "reponseEndTimes": [],
+          "lastCorrectIndex": {
+            "$numberInt": "-1"
+          },
+          "isCompleted": false,
+          "isStarted": false
+        }
+      }
+    }
+  },
+  "type": "HA",
+  "testing": false,
+  "isCompleted": false,
+  "isStarted": false
+}

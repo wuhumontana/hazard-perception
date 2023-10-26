@@ -1,0 +1,112 @@
+.banner.banner-wrapper {
+  --banner-line-height: 1.5rem;
+  --banner-border-radius: 1rem;
+  --banner-shadow-offset: 0.8rem;
+  --banner-max-height: calc(0.5 * var(--device-root-height));
+  --banner-ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --banner-ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 3rem;
+  z-index: 5;
+  width: max-content;
+  height: fit-content;
+  max-height: fit-content;
+  max-width: calc(100vw - 2 * 2.6rem);
+  box-shadow: 0 0 10rem 1rem var(--main-bg-color);
+  background: var(--banner-outer-shadow-color);
+  border-radius: var(--banner-border-radius);
+  padding-bottom: var(--banner-shadow-offset);
+  transition: 250ms var(--banner-ease-out);
+  outline: none;
+}
+
+.banner.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10rem) scale(0.9);
+  transition: 250ms var(--banner-ease-in);
+}
+.banner-overlay {
+  pointer-events: none;
+}
+.banner.flash .banner-overlay {
+  animation: banner-flash 200ms ease-out;
+}
+
+.banner-content {
+  overflow: hidden;
+  position: relative;
+  transition: 100ms ease;
+  background: var(--banner-border-color);
+  border: 0.25rem solid var(--banner-border-color);
+  border-radius: 0.8rem;
+  margin-inline: calc(-1.5 * var(--banner-shadow-offset));
+  color: white;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: fit-content;
+  max-width: calc(100% + 3 * var(--banner-shadow-offset));
+  box-sizing: border-box;
+  gap: 0.3rem;
+}
+.banner-content * {
+  transition: inherit;
+}
+
+.banner-content .banner-icon,
+.banner-content .banner-close {
+  width: max-content;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 0.8rem;
+  padding-block: 0.6rem;
+}
+.banner-content .banner-icon,
+.banner-content .banner-text {
+  background: var(--banner-bg-color);
+}
+.banner-content .banner-close {
+  background: var(--banner-close-bg-color);
+  cursor: pointer;
+}
+.banner-content .banner-icon svg,
+.banner-content .banner-close svg {
+  width: auto;
+  min-height: calc(1.5 * var(--banner-line-height));
+  aspect-ratio: 1;
+}
+
+.banner-content .banner-icon svg {
+  stroke-width: 1.7;
+}
+
+.banner-content .banner-text {
+  width: fit-content;
+  font-size: 1.2rem;
+  line-height: var(--banner-line-height);
+  font-weight: var(--font-medium);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.banner-overlay {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+}
+
+@keyframes banner-flash {
+  0% {
+    background: white;
+  }
+  100% {
+    background: transparent;
+  }
+}

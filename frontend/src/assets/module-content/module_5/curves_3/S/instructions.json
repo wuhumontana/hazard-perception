@@ -1,0 +1,40 @@
+{
+  "instructions": {
+    "top-view": [
+      "<ul>",
+      "  <header>Instructions:</header>",
+      "  <li>",
+      "    Please read the description of the scenario below and refer to the top",
+      "    down view of the scenario in the figure on the right.",
+      "  </li>",
+      "  <li>",
+      "    When you are done, please click on the driver view for the next step",
+      "  </li>",
+      "</ul>",
+      "<ul>",
+      "  <header>Scenario Description:</header>",
+      "  <li>",
+      "    You (red car) are travelling straight through the upcoming mid-block",
+      "    crosswalk.",
+      "  </li>",
+      "</ul>"
+    ],
+    "driver-view": [
+      "<ul>",
+      "  <header>Instruction:</header>",
+      "  <li>This is a view of the roadway from the driver’s perspective.</li>",
+      "  <li>",
+      "    Please click on the area of the scene where you believe a clue exists",
+      "    which indicates that a potential hazard is ahead.",
+      "  </li>",
+      "</ul>"
+    ]
+  },
+  "correct-feedback": [["Correct! Try one more time"], ["Correct!"]],
+  "incorrect-feedback": [
+    ["Incorrect, try again"],
+    ["Incorrect again, try again"],
+    ["Incorrect 3"],
+    ["Incorrect 4+"]
+  ]
+}

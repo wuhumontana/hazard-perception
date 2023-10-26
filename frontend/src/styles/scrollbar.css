@@ -1,0 +1,59 @@
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.os-scrollbar {
+  pointer-events: all;
+  --scroll-padding: 0.25rem;
+  --scroll-hover-padding: 0.15rem;
+  --end-padding: calc(var(--list-border-radius, 1.5rem) * 0.7);
+  transition: 80ms ease;
+}
+
+.os-scrollbar:hover .os-scrollbar-handle:not(:hover) {
+  background: var(--scroll-hover-color) !important;
+}
+
+.os-scrollbar-horizontal {
+  height: 0.8rem;
+  padding-block: var(--scroll-padding);
+  padding-inline: var(--end-padding);
+}
+
+.os-scrollbar-vertical {
+  width: 0.8rem;
+  padding-block: var(--end-padding);
+  padding-inline: var(--scroll-padding);
+}
+
+.os-scrollbar-horizontal:hover,
+.os-scrollbar-horizontal:focus {
+  height: 1rem;
+  padding-block: var(--scroll-hover-padding) !important;
+}
+
+.os-scrollbar-vertical:hover,
+.os-scrollbar-vertical:focus {
+  width: 1rem;
+  padding-inline: var(--scroll-hover-padding) !important;
+}
+
+.os-scrollbar-handle {
+  background: var(--scroll-thumb-color) !important;
+  opacity: var(--scrollbar-opacity, 60%) !important;
+}
+
+.os-scrollbar-vertical .os-scrollbar-handle {
+  min-height: 2rem;
+}
+
+.os-scrollbar-handle:hover {
+  background: var(--scroll-hover-color) !important;
+  --scrollbar-opacity: 100%;
+}
+
+.os-scrollbar-handle:focus {
+  background: var(--scroll-active-color) !important;
+  --scrollbar-opacity: 100%;
+}

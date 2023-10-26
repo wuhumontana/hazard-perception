@@ -1,0 +1,18 @@
+#page-not-found #root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding-top: 10rem;
+}
+
+#page-not-found header {
+  font-size: xx-large;
+  color: white;
+  text-align: center;
+}
+
+#page-not-found button {
+  --btn-v-padding: 1rem;
+  --btn-h-padding: 2rem;
+}

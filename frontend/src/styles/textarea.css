@@ -1,0 +1,159 @@
+.textarea-field {
+  display: flex;
+  flex-direction: column-reverse;
+  height: max-content;
+  width: 100%;
+  gap: 0.3rem;
+  position: relative;
+}
+
+.textarea-field label {
+  display: flex;
+  align-items: center;
+  color: var(--input-label-color);
+  font-size: 1.1rem;
+  max-width: 100%;
+  min-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+textarea {
+  --input-border-color: white;
+  background-color: var(--input-bg-color);
+  caret-color: var(--main-bg-color);
+  transition: 100ms ease;
+  border: 0.1rem solid transparent;
+  border-radius: 0.45rem;
+  padding: 0.35rem 0.5rem;
+  margin-bottom: 0.25rem;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  font-weight: var(--font-medium);
+  outline-offset: -0.1rem;
+  height: 7.5rem;
+  outline: none;
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+textarea:not(:disabled):hover:not(:focus),
+textarea:not(:disabled):hover:not(:focus) ~ .textarea-icons {
+  background: var(--input-bg-hover-color);
+}
+
+textarea:disabled {
+  color: var(--main-bg-color);
+}
+
+textarea:focus,
+textarea:-webkit-autofill {
+  outline: solid 0.2rem var(--input-border-color);
+}
+
+textarea::placeholder {
+  color: var(--main-bg-color);
+  opacity: 60%;
+}
+
+.textarea-icons {
+  display: flex;
+  width: fit-content;
+  position: absolute;
+  flex-direction: row-reverse;
+  background: var(--input-bg-color);
+  transition: 100ms ease;
+  padding-left: 0.35rem;
+  bottom: calc(0.55rem + 0.1rem);
+  right: 0.4rem;
+  margin: auto;
+  gap: 0.3rem;
+}
+
+.textarea-icons > * {
+  stroke-width: 2.5;
+  pointer-events: all;
+  height: max(2.8vmin, 1.5rem);
+  width: auto;
+}
+
+.field-error .textarea-icons {
+  background: var(--error-bg-color);
+  color: var(--error-fg-color);
+  pointer-events: none;
+}
+
+.field-error label {
+  font-weight: var(--font-medium);
+  color: var(--error-bg-color);
+}
+
+.field-error textarea {
+  background: var(--error-bg-color);
+  --input-border-color: var(--error-border-color);
+  outline: solid 0.2rem var(--input-border-color);
+}
+
+.field-error textarea:focus,
+textarea:is(:-internal-autofill-selected):focus {
+  outline-width: 0.3rem;
+}
+
+.field-error:hover:not(:focus) textarea:not(:-webkit-autofill),
+.field-error:hover:not(:focus)
+  textarea:not(:-webkit-autofill)
+  ~ .textarea-icons {
+  background: var(--error-hover-bg-color) !important;
+}
+
+.field-error textarea::placeholder {
+  color: var(--error-fg-color);
+}
+
+.err-tooltip {
+  --tt-opacity: 0;
+  opacity: var(--tt-opacity) !important;
+  background: #c61a42;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.4rem;
+  font-weight: var(--font-medium);
+  max-width: 100% !important;
+  color: white;
+  margin: 0.6rem 0;
+}
+
+.err-tooltip .tippy-arrow {
+  border-style: solid;
+  border-width: 0.9rem;
+  box-shadow: none;
+}
+
+.err-tooltip[data-placement="top"] .tippy-arrow {
+  top: calc(100% - 1rem);
+  border-color: #c61a42 transparent transparent;
+}
+
+.err-tooltip[data-placement="bottom"] .tippy-arrow {
+  bottom: calc(100% - 1rem);
+  border-color: transparent transparent #c61a42;
+}
+
+textarea:-webkit-autofill {
+  --input-border-color: var(--input-autofill-border-color);
+  box-shadow: inset 0px 0px 0px 99rem var(--input-autofill-bg-color);
+}
+
+textarea:-webkit-autofill:hover:not(:focus),
+textarea:-webkit-autofill:hover:not(:focus) ~ .textarea-icons {
+  --input-autofill-bg-color: var(--input-autofill-bg-hover-color);
+  background: var(--input-autofill-bg-hover-color);
+}
+
+textarea:-webkit-autofill ~ label {
+  font-weight: var(--font-medium);
+  color: var(--input-autofill-label-color);
+}
+
+textarea:-webkit-autofill ~ .textarea-icons {
+  background: var(--input-autofill-bg-color);
+}

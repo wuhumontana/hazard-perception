@@ -1,0 +1,122 @@
+.btn-tooltip,
+#scenario .view-tooltip {
+  --tt-bg: var(--tooltip-bg-color);
+  font-weight: var(--font-semi-bold);
+  color: var(--main-text-color);
+}
+#scenario .btn-tooltip {
+  --tt-bg: var(--main-fg-color);
+}
+
+.err-tooltip {
+  --tt-bg: #c61a42;
+  font-weight: var(--font-medium);
+  max-width: 100% !important;
+  color: white;
+}
+
+.file-tooltip {
+  --tt-bg: var(--tooltip-bg-color);
+  font-weight: var(--font-medium);
+  color: var(--main-text-color);
+}
+
+.select-tooltip {
+  --tt-bg: var(--input-bg-hover-color);
+  --shadow-color: var(--main-bg-color) 60%, transparent;
+  box-shadow: 0 0.4rem 2rem color-mix(in srgb, var(--shadow-color));
+  font-weight: var(--font-medium);
+  color: var(--main-text-color);
+  border: 0.2rem solid var(--tt-bg);
+  border-radius: 0.5rem !important;
+  margin: 0.3rem 0 !important;
+  padding: 0 !important;
+  transition: 100ms ease;
+  box-sizing: border-box;
+  min-width: max-content;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 10rem;
+}
+.select-tooltip[data-state="hidden"] {
+  translate: 0 -0.2rem;
+  max-height: 2rem;
+}
+
+.select-tooltip .tippy-content > div {
+  display: flex;
+  flex-direction: column;
+}
+.select-tooltip span.option {
+  outline: none !important;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 1.1rem;
+  padding: 0.45rem;
+  cursor: pointer;
+}
+.select-tooltip span.option:hover,
+.select-tooltip span.option:focus-visible {
+  background: var(--separator-color) !important;
+  color: white !important;
+  z-index: 6;
+}
+.select-tooltip span.option.selected {
+  --bg_mix: var(--separator-color) 40%, var(--input-bg-hover-color);
+  background: color-mix(in srgb, var(--bg_mix));
+  color: var(--main-text-color);
+  z-index: 5;
+}
+.select-tooltip span.option:active {
+  background: var(--main-bg-color) !important;
+  transition: 50ms ease;
+  color: white !important;
+  z-index: 7;
+}
+.select-tooltip span.option:not(:first-child)::before,
+.select-tooltip span.option:not(:last-child)::after {
+  content: "";
+  --bg_mix: var(--separator-color) 40%, var(--input-bg-hover-color);
+  background: color-mix(in srgb, var(--bg_mix));
+  position: absolute;
+  height: 0.2rem;
+  width: 100%;
+  left: 0;
+}
+.select-tooltip span.option:not(:first-child)::before {
+  bottom: calc(100% - 0.1rem);
+}
+.select-tooltip span.option:not(:last-child)::after {
+  top: calc(100% - 0.1rem);
+}
+.select-tooltip span.option:focus-visible::before,
+.select-tooltip span.option:active::before,
+.select-tooltip span.option:hover::before,
+.select-tooltip span.option:focus-visible::after,
+.select-tooltip span.option:active::after,
+.select-tooltip span.option:hover::after {
+  background: inherit !important;
+  opacity: 100%;
+}
+
+.tooltip {
+  --tt-opacity: 0;
+  opacity: var(--tt-opacity) !important;
+  background: var(--tt-bg);
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.4rem;
+  margin: 0.6rem 0;
+}
+.tooltip .tippy-arrow {
+  border-style: solid;
+  border-width: 0.9rem;
+  box-shadow: none;
+}
+.tooltip[data-placement="top"] .tippy-arrow {
+  top: calc(100% - 1rem);
+  border-color: var(--tt-bg) transparent transparent;
+}
+.tooltip[data-placement="bottom"] .tippy-arrow {
+  bottom: calc(100% - 1rem);
+  border-color: transparent transparent var(--tt-bg);
+}

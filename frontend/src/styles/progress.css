@@ -1,0 +1,213 @@
+/* ================== Circular Progress Bar ================== */
+
+.circular-progress {
+  --circ-max-width: 65vmin;
+  --circ-stroke-width: 12;
+
+  position: relative;
+  display: flex;
+  width: var(--circ-max-width);
+  min-width: var(--circ-max-width);
+  aspect-ratio: 1;
+  height: auto;
+}
+
+.circular-progress svg {
+  min-width: var(--circ-max-width);
+  aspect-ratio: 1;
+}
+
+.circular-progress-label {
+  --label-offset: calc(-0.025 * var(--circ-stroke-width) + 1.25);
+  --label-max-width: calc(var(--circ-max-width) * var(--label-offset));
+
+  color: var(--circular-progress-fg);
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  inset: 0;
+}
+
+.circular-progress-label .number {
+  --font-size: calc(var(--label-max-width) * 0.3);
+  font-weight: var(--font-extra-bold);
+  font-size: var(--font-size);
+}
+
+.circular-progress-label .percent {
+  font-weight: var(--font-semi-bold);
+  font-size: calc(var(--label-max-width) * 0.12);
+}
+
+.circular-progress.loading .number {
+  --font-size: calc(var(--label-max-width) * 0.6);
+}
+
+.circular-progress.loading .CircularProgressbar-path {
+  --dasharray: calc((100 - var(--circ-stroke-width)) * 3.14159px);
+  animation: circ-loading 1s ease 500ms infinite;
+  transform: rotate(-30deg);
+}
+
+@keyframes circ-loading {
+  0% {
+    /* 15% */
+    transform: rotate(-30deg);
+  }
+  25% {
+    /* 40% */
+    stroke-dashoffset: calc((1 - 0.4) * var(--dasharray));
+  }
+  100% {
+    /* 15% */
+    stroke-dashoffset: calc((1 - 0.15) * var(--dasharray));
+    transform: rotate(330deg);
+  }
+}
+
+/* =================== Linear Progress Bar =================== */
+
+.linear-progress {
+  --progress-height: 2rem;
+  --border-width: 0.35rem;
+  --shadow-width: calc(0.1 * var(--progress-height) + 0.2rem);
+  --lin-progress-fg: linear-gradient(
+    var(--complete-color) 67%,
+    var(--complete-shadow) 67%
+  );
+  --lin-progress-bg: linear-gradient(
+    var(--incomplete-color) 33%,
+    var(--incomplete-shadow) 33%
+  );
+
+  height: var(--progress-height);
+  width: 100%;
+  display: block !important;
+}
+
+.linear-progress > div {
+  height: 100% !important;
+  background: var(--lin-progress-bg) !important;
+  border-radius: 100vmax !important;
+  border: solid var(--border-width) var(--progress-border-color);
+  box-sizing: border-box;
+}
+
+.linear-progress > div > div {
+  height: 100% !important;
+  min-width: calc(var(--progress-height) - 2 * var(--border-width));
+  background: var(--lin-progress-fg) !important;
+  outline: solid var(--shadow-width) var(--progress-border-color);
+  transition: 500ms ease !important;
+  transition-delay: 10ms;
+  border: none;
+}
+
+.linear-progress.loading > div > div {
+  width: 18% !important;
+  animation: linear-loading 1s ease-in-out infinite;
+}
+
+@keyframes linear-loading {
+  5% {
+    min-width: 18%;
+    transform: translateX(0%);
+  }
+  25% {
+    min-width: 25%;
+  }
+  50% {
+    min-width: 20%;
+    transform: translateX(400%);
+  }
+  75% {
+    min-width: 25%;
+  }
+  95% {
+    min-width: 18%;
+    transform: translateX(0%);
+  }
+}
+
+.linear-progress.empty div div {
+  display: none !important;
+}
+
+/* ================= Sectioned Progress Bar ================== */
+
+.section-progress {
+  --section-progress-incomplete: linear-gradient(
+    var(--incomplete-color) 33%,
+    var(--incomplete-shadow) 33%
+  );
+  --section-progress-correct: linear-gradient(
+    var(--complete-color) 67%,
+    var(--complete-shadow) 67%
+  );
+  --section-progress-incorrect: linear-gradient(
+    var(--incorrect-color) 67%,
+    var(--incorrect-shadow) 67%
+  );
+  --section-progress-height: 2.5rem;
+
+  display: flex;
+  flex-direction: row;
+  height: var(--section-progress-height);
+  border-radius: 100vmax;
+  overflow: hidden;
+  gap: 0.35rem;
+  border: solid var(--progress-border-color) 0.3rem;
+  background: var(--progress-border-color);
+  box-sizing: border-box;
+}
+
+.section-progress .section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+.section-progress .section:first-child {
+  padding-left: 0.3rem;
+}
+.section-progress .section:last-child {
+  padding-right: 0.3rem;
+}
+
+.section-progress .block-incomplete {
+  background: var(--section-progress-incomplete);
+}
+
+.section-progress .block-complete {
+  background: var(--section-progress-complete);
+}
+
+.section-progress .block-incorrect {
+  background: var(--section-progress-incorrect);
+}
+
+.section-progress .block-correct {
+  background: var(--section-progress-correct);
+}
+
+.section .correct {
+  color: var(--correct-icon-color);
+}
+
+.section .incorrect {
+  color: var(--incorrect-icon-color);
+}
+
+.section svg {
+  height: 88%;
+  width: auto;
+  aspect-ratio: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .section svg {
+    display: none;
+  }
+}

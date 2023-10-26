@@ -1,0 +1,158 @@
+html,
+body {
+  --device-root-height: 100vh;
+  --nav-height: calc(100vh - var(--device-root-height));
+  --ease-cubic: cubic-bezier(0.2, 0, 0.1, 1);
+  background-color: var(--main-bg-color);
+  height: var(--device-root-height);
+  font-size: max(2vmin, 1rem);
+  max-height: 100%;
+  margin: 0;
+}
+
+a,
+div,
+input,
+button,
+select {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+path {
+  pointer-events: none;
+}
+
+svg:not(:root) {
+  overflow: initial !important;
+}
+
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+.link,
+a[href],
+.forgot-pw {
+  border-radius: 0.3rem;
+  border: 0.27rem solid transparent;
+}
+
+.link:focus-visible,
+a[href]:focus-visible,
+.forgot-pw:focus-visible {
+  background: var(--text-link-outline);
+  border-color: var(--text-link-outline);
+  color: var(--main-text-color) !important;
+  text-decoration: underline;
+}
+
+.card {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--default-card-bg-color);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  padding: 1.5rem;
+  margin: 1rem;
+}
+
+.scroll-menu-content {
+  display: inline-flex;
+}
+
+.scroll-list-edge {
+  --overall-border: 0.18rem;
+  --edge-border: calc(var(--overall-border) - 1px);
+  transition: opacity 100ms ease;
+  box-sizing: border-box;
+  pointer-events: none;
+  position: sticky;
+  display: flex;
+  opacity: 70%;
+  bottom: 0;
+  right: 0;
+}
+
+.scroll-list-edge div {
+  border: solid var(--overall-border) var(--main-bg-color);
+  border-width: var(--border-width);
+  outline: solid 2px var(--main-bg-color);
+  outline-offset: -1px;
+}
+
+.scroll-list-edge.vertical {
+  left: 0;
+  top: calc(100% - var(--edge-offset));
+  border-top: solid var(--edge-border) var(--main-bg-color);
+  height: var(--edge-offset);
+  flex-direction: column;
+  --border-width: var(--overall-border) 0;
+  --edge-offset: 1.9rem;
+  max-height: var(--edge-offset);
+  min-width: 100%;
+}
+
+.scroll-list-edge.horizontal {
+  top: 0;
+  left: calc(100% - var(--edge-offset));
+  border-left: solid var(--edge-border) var(--main-bg-color);
+  min-width: var(--edge-offset);
+  --border-width: 0 var(--overall-border);
+  --edge-offset: 5rem;
+  height: 100%;
+  max-width: var(--edge-offset);
+}
+
+.scroll-list-edge.vertical div {
+  width: calc(100% + 2px);
+  margin: 0 -1px -1px;
+  height: 100%;
+}
+
+.scroll-list-edge.horizontal div {
+  height: calc(100% + 2px);
+  margin: -1px -1px -1px 0;
+  width: 100%;
+}
+
+.scroll-list-edge.vertical :nth-child(1),
+.scroll-list-edge.vertical :nth-child(3) {
+  display: none;
+}
+
+.scroll-list.horizontal > :not([class]) {
+  display: flex;
+}
+.scroll-list-edge :nth-child(1) {
+  flex: 7.8;
+}
+.scroll-list-edge :nth-child(2) {
+  flex: 4.6;
+}
+.scroll-list-edge :nth-child(3) {
+  flex: 2.8;
+}
+.scroll-list-edge :nth-child(4) {
+  flex: 1.6;
+}
+.scroll-list-edge :nth-child(5) {
+  border-right: none;
+  border-bottom: none;
+  flex: 1;
+}
+
+@media screen and (max-height: 745px) {
+  .scroll-list-edge.vertical {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  html,
+  body {
+    font-size: 0.9rem;
+  }
+}

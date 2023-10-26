@@ -1,0 +1,35 @@
+select {
+  --input-border-color: white;
+  background-color: var(--input-bg-color);
+  caret-color: var(--input-bg-color);
+  transition: 100ms ease;
+  border: 0.1rem solid transparent;
+  border-radius: 0.45rem;
+  padding: 0.35rem 0.5rem;
+  margin-bottom: 0.25rem;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  font-weight: var(--font-medium);
+  outline-offset: -0.1rem;
+  height: max-content;
+  outline: none;
+  width: 100%;
+}
+
+select:not(:disabled):hover:not(:focus) {
+  background: var(--input-bg-hover-color);
+}
+
+select:disabled {
+  color: var(--main-bg-color);
+}
+
+select:focus,
+select:-webkit-autofill {
+  outline: solid 0.2rem var(--input-border-color);
+}
+
+select::placeholder {
+  color: var(--main-bg-color);
+  opacity: 60%;
+}

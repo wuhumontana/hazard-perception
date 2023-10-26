@@ -1,0 +1,261 @@
+.btn {
+  --btn-depth: 0.7rem;
+  --btn-font-size: 1.1rem;
+  --btn-border-width: 0.3rem;
+  --btn-border-radius: 0.6rem;
+
+  --btn-line-height: calc(1.2 * var(--btn-font-size));
+  --btn-height: calc(2 * var(--btn-v-padding) + var(--btn-line-height));
+  line-height: var(--btn-line-height);
+  font-size: var(--btn-font-size);
+  border-radius: var(--btn-border-radius);
+  font-weight: var(--font-semi-bold);
+  max-height: calc(
+    var(--btn-height) + var(--btn-depth) + 2 * var(--btn-border-width)
+  );
+  max-width: 100%;
+  width: fit-content;
+  align-items: flex-end;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  transition: 150ms var(--ease-cubic);
+
+  /* override <button/> styles */
+  background: none;
+  border: none;
+  padding: 0;
+
+  /* prevent text highlighting */
+  -webkit-user-select: none !important;
+  user-select: none;
+}
+
+.btn-foreground svg,
+.btn-foreground .btn-icon {
+  --size-offset: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: calc(-1 * var(--size-offset));
+  aspect-ratio: 1;
+  height: calc(var(--btn-line-height) + 2 * var(--size-offset));
+  width: auto;
+}
+
+.btn-empty {
+  display: none;
+}
+
+.btn.loading,
+.btn.shaking {
+  pointer-events: none;
+}
+.btn:not(.loading) .load-dots,
+.btn.loading .btn-foreground *:not(.load-dots) {
+  display: none;
+}
+.btn-foreground * {
+  transition: opacity 100ms ease;
+}
+.btn.swapping .btn-foreground * {
+  opacity: 0;
+}
+
+.load-dots {
+  position: relative;
+  height: calc(var(--btn-line-height) / 2);
+  margin: calc(var(--btn-line-height) / 4);
+  animation: flash-dot 300ms infinite alternate ease;
+  animation-delay: 150ms;
+}
+.load-dots,
+.load-dots::before,
+.load-dots::after {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 5rem;
+  background-color: transparent;
+  transform: translateY(25%);
+}
+.load-dots::before,
+.load-dots::after {
+  content: "";
+  animation: flash-dot 300ms infinite alternate ease;
+  display: inline-block;
+  position: absolute;
+  top: 15%;
+}
+.load-dots::before {
+  left: -1.4rem;
+  animation-delay: 0s;
+}
+.load-dots::after {
+  left: 1.4rem;
+  animation-delay: 300ms;
+}
+
+@keyframes flash-dot {
+  0% {
+    background-color: var(--dots-color2);
+    transform: translateY(15%);
+  }
+  60% {
+    background-color: var(--dots-color);
+  }
+  100% {
+    background-color: var(--dots-color);
+    transform: translateY(-30%);
+  }
+}
+
+/* not supported in firefox */
+.btn-toggle:has(.btn-empty) {
+  display: none;
+}
+
+.btn-wrapper {
+  --btn-v-padding: 0.6rem;
+  --btn-h-padding: 1rem;
+}
+
+.icon-btn-wrapper {
+  --btn-v-padding: 0.6rem;
+  --btn-h-padding: 0.7rem;
+  --btn-gap: 0.5rem;
+}
+
+.btn-depth,
+.btn-foreground,
+.btn-background {
+  transition: inherit;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.btn-foreground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--btn-color);
+  background-color: var(--btn-bg-color);
+  padding: var(--btn-v-padding) var(--btn-h-padding);
+  margin-bottom: var(--btn-depth);
+  border: solid var(--btn-border-width) var(--btn-border-color);
+  border-radius: var(--btn-border-radius);
+  gap: var(--btn-gap);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  z-index: 1;
+}
+
+.btn-foreground > span {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.btn-depth,
+.btn-background {
+  width: 100%;
+  position: absolute;
+  background-color: var(--btn-border-color);
+}
+
+.btn-depth {
+  border-radius: 1px;
+  bottom: calc(var(--btn-height) / 2 + var(--btn-border-width) - 1px);
+  height: calc(var(--btn-depth) + 2px);
+}
+
+.btn-background {
+  bottom: 0;
+  top: var(--btn-depth);
+  border-radius: var(--btn-border-radius);
+}
+
+.btn[disabled] {
+  pointer-events: none;
+}
+
+.btn.shaking {
+  animation: shake 300ms ease 100ms 1;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  40% {
+    transform: translateX(-8px);
+  }
+  60% {
+    transform: translateX(10px);
+  }
+  80% {
+    transform: translateX(-6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+:not(.btn-toggle) > .btn:focus-visible {
+  outline: solid 0.25rem var(--btn-focus-outline);
+  outline-offset: 0.2rem;
+}
+
+.btn-toggle {
+  transition: 150ms var(--ease-cubic);
+}
+
+.btn-toggle:has(.btn[tag="pressed"]:focus-visible),
+.btn-toggle .btn[tag=""]:focus-visible .btn-foreground {
+  outline: solid 0.3rem white;
+  outline-offset: -0.3rem;
+}
+
+.btn:hover .btn-foreground {
+  /* TODO */
+  box-shadow: 0px 0px 0px 0.2rem var(--btn-highlight);
+}
+
+:not(.btn-toggle) > .btn:active .btn-foreground,
+:not(.btn-toggle) > .btn[tag="active"] .btn-foreground,
+.btn[disabled] .btn-foreground,
+.btn[tag="pressed"] .btn-foreground {
+  margin-bottom: 0;
+  margin-top: var(--btn-depth);
+}
+
+:not(.btn-toggle) > .btn:active .btn-depth,
+:not(.btn-toggle) > .btn[tag="active"] .btn-depth,
+.btn[disabled] .btn-depth,
+.btn[tag="pressed"] .btn-depth {
+  height: 2px;
+}
+
+.btn-toggle {
+  display: flex;
+  gap: 0.3rem;
+  border: var(--toggle-border-color) solid 0.3rem;
+  width: fit-content;
+  padding: 0.3rem;
+  margin: auto;
+  border-radius: 1.2rem;
+}
+
+.btn-toggle .btn {
+  margin-top: -1.2rem;
+}
+
+.btn-toggle .btn[tag="pressed"] .btn-foreground {
+  background-color: var(--toggle-btn-bg);
+}

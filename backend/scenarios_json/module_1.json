@@ -1,0 +1,52 @@
+{
+  "id": "module_1",
+  "scenarios": {
+    "intersections_1": {
+      "id": "intersections_1",
+      "activities": {
+        "S": {
+          "id": "S",
+          "hitboxCoordinates": {
+            "x": { "$numberDouble": "0.70137" },
+            "y": { "$numberDouble": "0.404037" }
+          },
+          "hitboxRadii": {
+            "x": { "$numberDouble": "0.02757" },
+            "y": { "$numberDouble": "0.03571" }
+          },
+          "hitboxCoordinatesResponses": [],
+          "responseStartTimes": [],
+          "reponseEndTimes": [],
+          "lastCorrectIndex": {
+            "$numberInt": "-1"
+          },
+          "isCompleted": false,
+          "isStarted": false
+        },
+        "T": {
+          "id": "T",
+          "hitboxCoordinates": {
+            "x": { "$numberDouble": "0.77354" },
+            "y": { "$numberDouble": "0.60895" }
+          },
+          "hitboxRadii": {
+            "x": { "$numberDouble": "0.040061" },
+            "y": { "$numberDouble": "0.141289" }
+          },
+          "hitboxCoordinatesResponses": [],
+          "responseStartTimes": [],
+          "reponseEndTimes": [],
+          "lastCorrectIndex": {
+            "$numberInt": "-1"
+          },
+          "isCompleted": false,
+          "isStarted": false
+        }
+      }
+    }
+  },
+  "type": "HA",
+  "testing": false,
+  "isCompleted": false,
+  "isStarted": false
+}
