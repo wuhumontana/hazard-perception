@@ -12,7 +12,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
+    env:
+      main: AZUREAPPSERVICE_PUBLISHPROFILE_D4FF95F452294EACB20F9CF986186F71
+    
     steps:
       - uses: actions/checkout@v4
 
