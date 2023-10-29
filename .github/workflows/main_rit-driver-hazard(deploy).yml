@@ -32,7 +32,7 @@ jobs:
         run: |
           ls
           pwd
-          zip release.zip . -i /frontend/dist -r 
+          zip -r release.zip frontend/dist
           # run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
