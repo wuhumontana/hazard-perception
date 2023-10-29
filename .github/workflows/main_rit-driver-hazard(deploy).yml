@@ -29,7 +29,8 @@ jobs:
           #npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: zip release.zip ./dist -r
+        # run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -37,27 +38,27 @@ jobs:
           name: node-app
           path: release.zip
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'deploy'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   environment:
+  #     name: 'deploy'
+  #     url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: node-app
+  #   steps:
+  #     - name: Download artifact from build job
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: node-app
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
+  #     - name: Unzip artifact for deployment
+  #       run: unzip release.zip
 
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'rit-driver-hazard'
-          slot-name: 'deploy'
+  #     - name: 'Deploy to Azure Web App'
+  #       id: deploy-to-webapp
+  #       uses: azure/webapps-deploy@v2
+  #       with:
+  #         app-name: 'rit-driver-hazard'
+  #         slot-name: 'deploy'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D4FF95F452294EACB20F9CF986186F71 }}
           package: .
