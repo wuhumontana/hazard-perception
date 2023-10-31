@@ -23,7 +23,7 @@ jobs:
 
       - name: npm install, build, and test
         env:
-          BACKEND_URL: ${{ env.BACKEND_URL }}
+          BACKEND_URL: ${{ vars.BACKEND_URL }}
         run: |
           echo "BACKEND_URL: ${{ env.BACKEND_URLL }}"
           echo "$BACKEND_URL"
