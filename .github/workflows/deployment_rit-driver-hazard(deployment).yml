@@ -22,7 +22,7 @@ jobs:
           node-version: '18.x'
 
       - name: npm install, build, and test
-       env:
+        env:
           BACKEND_URL: ${{ BACKEND_URL }}
         run: |
           echo "$BACKEND_URL"
