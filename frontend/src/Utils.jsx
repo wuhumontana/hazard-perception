@@ -3,7 +3,7 @@ import forge from "node-forge";
 import { cloneElement, createContext } from "react";
 import { read, utils } from "xlsx";
 
-export const ServerUrl = "http://localhost:3000";
+export const ServerUrl = process.env.BACKEND_URL;
 
 // Public Key
 export const publicKey = `
