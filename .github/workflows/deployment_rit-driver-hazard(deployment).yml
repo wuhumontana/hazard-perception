@@ -22,7 +22,11 @@ jobs:
           node-version: '18.x'
 
       - name: npm install, build, and test
+       env:
+          BACKEND_URL: ${{ BACKEND_URL }}
         run: |
+          echo "$BACKEND_URL"
+          echo $BACKEND_URL
           cd frontend
           npm install
           npm run build --if-present
