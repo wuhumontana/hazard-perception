@@ -25,7 +25,6 @@ jobs:
         env:
           BACKEND_URL: ${{ env.BACKEND_URL }}
         run: |
-          echo "$BACKEND_URL"
           echo $BACKEND_URL
           cd frontend
           npm install
