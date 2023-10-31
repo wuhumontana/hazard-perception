@@ -32,7 +32,7 @@ jobs:
           cd ..
           
       - name: Zip frontend artifact
-        run: zip -r frontend.zip frontend/dist ./backend/*
+        run: zip -r frontend.zip frontend/dist
 
       - name: Zip backend artifact
         run: zip -r backend.zip ./backend/*
@@ -95,6 +95,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'rit-driver-hazard'
-          slot-name: 'deployment'
+          slot-name: 'rit-driver-hazard-deployment'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_086E8502E0604BAE976AF706718D8DBC }}
           package: .
