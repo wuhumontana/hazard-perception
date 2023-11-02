@@ -6,6 +6,10 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
   plugins: [react(), svgr()],
   server: {
-    port: 80, // 自定义端口号
+    port: 5000,
   },
+  // Backend URL
+  define: {
+    'process.env.BACKEND_URL': JSON.stringify(process.env.BACKEND_URL || 'http://localhost:3000')
+  }
 });
