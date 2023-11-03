@@ -40,7 +40,7 @@ jobs:
       - name: Zip backend artifact
         run: |
           cd backend
-          zip -r backend.zip ./*
+          zip -r backend.zip *
 
       - name: Upload frontend artifact
         uses: actions/upload-artifact@v3
