@@ -38,7 +38,9 @@ jobs:
         run: zip -r frontend.zip frontend/dist
 
       - name: Zip backend artifact
-        run: zip -r backend.zip ./backend/*
+        run: |
+          cd backend
+          zip -r backend.zip ./*
 
       - name: Upload frontend artifact
         uses: actions/upload-artifact@v3
