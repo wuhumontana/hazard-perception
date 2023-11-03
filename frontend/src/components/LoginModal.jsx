@@ -81,6 +81,7 @@ function LoginModal(props) {
     }
     setLoading(btn);
     const encryptedPassword = encryptWithPublicKey(loginForm.password);
+    console.log(ServerUrl);
     await axios
       .post(
         `${ServerUrl}/users/login`,
