@@ -44,7 +44,6 @@ jobs:
               repo: context.repo.repo,
             })
             
-            // Print the total number of artifacts
             console.log(`Total artifacts: ${res.data.artifacts.length}`)
             
             res.data.artifacts.forEach(artifact => {
