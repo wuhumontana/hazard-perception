@@ -48,12 +48,14 @@ jobs:
             res.data.artifacts
               .filter(({ name }) => name === 'frontend-pkg' || name === 'backend-pkg')
               .forEach(({ id }) => {
+                console.log(`name: ${name}`)
                 github.rest.actions.deleteArtifact({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   artifact_id: id,
                 })
               })
+              console.log(`Total artifacts: ${res.data.artifacts.length}`)
 
       - name: Zip frontend artifact
         run: zip -r frontend.zip frontend/dist
