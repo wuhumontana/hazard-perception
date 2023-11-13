@@ -58,7 +58,11 @@ jobs:
                   artifact_id: id,
                 })
               })
-              console.log(`Total artifacts: ${res.data.artifacts.length}`)
+              const res2 = await github.rest.actions.listArtifactsForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+              })
+              console.log(`Total artifacts: ${res2.data.artifacts.length}`)
 
       - name: Zip frontend artifact
         run: zip -r frontend.zip frontend/dist
