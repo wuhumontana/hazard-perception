@@ -48,7 +48,7 @@ jobs:
             res.data.artifacts.forEach(artifact => {
               console.log(`Artifact name: ${artifact.name}`);
               console.log(`Artifact name: ${artifact.id}`);
-            });
+            })
             # res.data.artifacts
             #   .filter(({ name }) => name === 'frontend-pkg' || name === 'backend-pkg' || name === 'node-app')
             #   .forEach(({ id }) => {
