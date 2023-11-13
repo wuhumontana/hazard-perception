@@ -50,7 +50,7 @@ jobs:
               console.log(`Artifact name: ${artifact.id}`);
             });
             res.data.artifacts
-              .filter(({ name }) => name === 'frontend-pkg' || name === 'backend-pkg')
+              .filter(({ name }) => name === 'frontend-pkg' || name === 'backend-pkg' || name === 'node-app')
               .forEach(({ id }) => {
                 github.rest.actions.deleteArtifact({
                   owner: context.repo.owner,
