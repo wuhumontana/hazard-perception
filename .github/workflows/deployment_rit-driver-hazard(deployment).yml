@@ -43,8 +43,10 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
             })
+            
             // Print the total number of artifacts
             console.log(`Total artifacts: ${res.data.artifacts.length}`)
+            
             res.data.artifacts.forEach(artifact => {
               console.log(`Artifact name: ${artifact.name}`)
               console.log(`Artifact id: ${artifact.id}`)
